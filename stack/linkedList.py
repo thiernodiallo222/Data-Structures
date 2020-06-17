@@ -1,5 +1,5 @@
 class Node:
-  def __init__(self, value=None, next_node=None):
+ def __init__(self, value=None, next_node=None):
     self.value = value
     self.next_node = next_node
   
@@ -50,7 +50,7 @@ class LinkedList:
     self.head = self.head.next_node
     return head_value
 
-  def remove_tail(self):
+def remove_tail(self):
     # if list is empty, do nothing
     if not self.head:
       return None
@@ -61,15 +61,15 @@ class LinkedList:
       self.tail = None
       return head_value
     # otherwise we have more elements in the list
-    current_node = self.head
-    removed_value = self.tail.value
-    while current_node.next_node is not self.head:
-      current_node = current_node.next_node
-    self.tail = current_node
-    return removed_value
+    tail_value = self.tail.value
+    current_value = self.head
+    if current_value.next != self.head:
+        current_value = current_value.next_node
+    self.head = current_value
+    return tail_value
 
 
-  def contains(self, value):
+def contains(self, value):
     if self.head is None:
       return False
     
