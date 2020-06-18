@@ -1,5 +1,5 @@
 class Node:
- def __init__(self, value=None, next_node=None):
+  def __init__(self, value=None, next_node=None):
     self.value = value
     self.next_node = next_node
   
@@ -50,7 +50,7 @@ class LinkedList:
     self.head = self.head.next_node
     return head_value
 
-def remove_tail(self):
+  def remove_tail(self):
     # if list is empty, do nothing
     if not self.head:
       return None
@@ -61,15 +61,15 @@ def remove_tail(self):
       self.tail = None
       return head_value
     # otherwise we have more elements in the list
-    tail_value = self.tail.value
-    current_value = self.head
-    if current_value.next != self.head:
-        current_value = current_value.next_node
-    self.head = current_value
-    return tail_value
+    current_node = self.head
+    removed_value = self.tail.value
+    while current_node.next_node is not self.head:
+      current_node = current_node.next_node
+    self.tail = current_node
+    return removed_value
 
 
-def contains(self, value):
+  def contains(self, value):
     if self.head is None:
       return False
     
@@ -83,21 +83,26 @@ def contains(self, value):
 
       # otherwise, go to the next node
       current_node = current_node.next_node
-    return False 
+    return False
+
+  # def get_max(self):
+  #   return max(self)
+    
+  def get_max(self):
+    if not self.head:
+      print('empty list')
+    else:
+         current = self.head
+         max = self.head.value
+         while current is not None:
+           if max < current.value:
+             max = current.value
+           current = current.next_node
+         return max
+         
+           
+    
+          
+    
   
 
-# example
-# linked_list = LinkedList()
-
-# linked_list.add_to_head(0)
-# linked_list.add_to_tail(1)
-# print(f'does our LL contain 0? {linked_list.contains(0)}')
-# print(f'does our LL contain 1? {linked_list.contains(1)}')
-# print(f'does our LL contain 2? {linked_list.contains(2)}')
-
-# linked_list.add_to_head(2)
-# print(f'the start of the list is {linked_list.head.value}')
-# linked_list.add_to_head(5)
-# print(f'the start of the list is {linked_list.head.value}')
-# linked_list.remove_head()
-# print(f'the start of the list is {linked_list.head.value}')

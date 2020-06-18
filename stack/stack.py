@@ -9,6 +9,8 @@ return elements in Last In First Out order.
    Make sure the Stack tests pass.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Stack?
+   Response: Using an array take O(1) for push and pop methodes. It is the same thing if we 
+   used a linked List. push and pop metods are constant time, so both are efficent
 """
 
 # implementation using python list:
