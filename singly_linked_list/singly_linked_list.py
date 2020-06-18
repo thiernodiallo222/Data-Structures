@@ -83,21 +83,26 @@ class LinkedList:
 
       # otherwise, go to the next node
       current_node = current_node.next_node
-    return False 
+    return False
+
+  # def get_max(self):
+  #   return max(self)
+    
+  def get_max(self):
+    if not self.head:
+      print('empty list')
+    else:
+         current = self.head
+         max = self.head.value
+         while current is not None:
+           if max < current.value:
+             max = current.value
+           current = current.next_node
+         return max
+         
+           
+    
+          
+    
   
 
-# example
-# linked_list = LinkedList()
-
-# linked_list.add_to_head(0)
-# linked_list.add_to_tail(1)
-# print(f'does our LL contain 0? {linked_list.contains(0)}')
-# print(f'does our LL contain 1? {linked_list.contains(1)}')
-# print(f'does our LL contain 2? {linked_list.contains(2)}')
-
-# linked_list.add_to_head(2)
-# print(f'the start of the list is {linked_list.head.value}')
-# linked_list.add_to_head(5)
-# print(f'the start of the list is {linked_list.head.value}')
-# linked_list.remove_head()
-# print(f'the start of the list is {linked_list.head.value}')
