@@ -69,11 +69,11 @@ class BSTNode:
     # if you can go left, call for_each on the left tree
     # if you can go right, call for_each on the right tree
     def for_each(self, fn):
-        if self is not None:
+        if self:
             fn(self.value)
             if self.left:
                 self.left.for_each(fn)
-            elif self.right is not None:
+            if self.right is not None:
                 self.right.for_each(fn)  
         else:
             return None 
