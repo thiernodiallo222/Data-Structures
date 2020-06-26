@@ -9,11 +9,13 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
-import sys
-sys.path.append('/Users/thiernodiallo/Documents/Code/CS/part1/Data-Structures/queue/queue.py')
-from queue import *
-# sys.path.append('/Users/thiernodiallo/Documents/Code/CS/part1/Data-Structures/stack/stack.py')
+# import sys
+# sys.path.enqueue('/Users/thiernodiallo/Documents/Code/CS/part1/Data-Structures/queue/queue.py')
+# sys.path.enqueue('/Users/thiernodiallo/Documents/Code/CS/part1/Data-Structures/stack/stack.py')
 # from stack import *
+from queue import MyQueue
+from stack import MyStack
+
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -99,15 +101,15 @@ class BSTNode:
     # # in an iterative breadth first traversal
     def bft_print(self,node):
         if node:
-            queue = []
-            queue.append(node) 
+            queue = MyQueue()
+            queue.enqueue(node) 
             while len(queue) > 0:
-                current = queue.pop(0)
+                current = queue.dequeue()
                 print(current.value)
                 if current.left:
-                    queue.append(current.left)
+                    queue.enqueue(current.left)
                 if current.right:
-                    queue.append(current.right)
+                    queue.enqueue(current.right)
         else:
             return None 
 
@@ -115,15 +117,15 @@ class BSTNode:
     # # in an iterative depth first traversal
     def dft_print(self, node):
         if node:
-            stack = []
-            stack.append(node) 
+            stack = MyStack()
+            stack.push(node) 
             while len(stack) > 0:
                 current = stack.pop()
                 print(current.value)
                 if current.left:
-                    stack.append(current.left)
+                    stack.push(current.left)
                 if current.right:
-                    stack.append(current.right)
+                    stack.push(current.right)
         else:
             return None 
 
