@@ -11,9 +11,9 @@ This part of the project comprises two days:
 """
 import sys
 sys.path.append('/Users/thiernodiallo/Documents/Code/CS/part1/Data-Structures/queue/queue.py')
-# from queue.py import *
-sys.path.append('/Users/thiernodiallo/Documents/Code/CS/part1/Data-Structures/stack/stack.py')
-# from stack.py import *
+from queue import *
+# sys.path.append('/Users/thiernodiallo/Documents/Code/CS/part1/Data-Structures/stack/stack.py')
+# from stack import *
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -87,28 +87,27 @@ class BSTNode:
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
-    def in_order_print(self, node):
-        if node is not None:
+    def in_order_print(self,node):
             if node.left:
-                node.left.in_order_print(node)
-            print(self)
+                node.left.in_order_print(node.left)
+            print(node.value)
             if node.right:
-                node.right.in_order_print(node)
+                node.right.in_order_print(node.right)
        
 
     # # Print the value of every node, starting with the given node,
     # # in an iterative breadth first traversal
-    def bft_print(self):
-        if self:
-            queue = Queue()
-            queue.enqueue(self) 
-            while queue.__len__():
-                current = queue.dequeue()
+    def bft_print(self,node):
+        if node:
+            queue = []
+            queue.append(node) 
+            while len(queue) > 0:
+                current = queue.pop(0)
                 print(current.value)
                 if current.left:
-                    queue.enqueue(current.left)
+                    queue.append(current.left)
                 if current.right:
-                    queue.enqueue(current.right)
+                    queue.append(current.right)
         else:
             return None 
 
@@ -116,15 +115,15 @@ class BSTNode:
     # # in an iterative depth first traversal
     def dft_print(self, node):
         if node:
-            stack = Stack()
-            stack.push(node) 
-            while stack.__len__():
+            stack = []
+            stack.append(node) 
+            while len(stack) > 0:
                 current = stack.pop()
                 print(current.value)
                 if current.left:
-                    stack.push(current.left)
+                    stack.append(current.left)
                 if current.right:
-                    stack.push(current.right)
+                    stack.append(current.right)
         else:
             return None 
 
@@ -132,20 +131,20 @@ class BSTNode:
     # # Note: Research may be required
 
     # # Print Pre-order recursive DFT
-    # def pre_order_dft(self, node):
-    #     print(node.value)
-    #     if node.left:
-    #         node.left.in_order_print(node)
-    #     if node.right:
-    #         node.right.in_order_print(node)
+    def pre_order_dft(self, node):
+        print(node.value)
+        if node.left:
+            node.left.pre_order_dft(node.left)
+        if node.right:
+            node.right.pre_order_dft(node.right)
       
 
-    # # Print Post-order recursive DFT
-    # def post_order_dft(self, node):
-    #     if node.left:
-    #         node.left.in_order_print(node)
-    #     if node.right:
-    #         node.right.in_order_print(node)
-    #     print(node.value)
+    # Print Post-order recursive DFT
+    def post_order_dft(self, node):
+        if node.left:
+            node.left.post_order_dft(node.left)
+        if node.right:
+            node.right.post_order_dft(node.right)
+        print(node.value)
         
         
