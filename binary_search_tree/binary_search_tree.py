@@ -9,6 +9,11 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
+import sys
+sys.path.append('/Users/thiernodiallo/Documents/Code/CS/part1/Data-Structures/queue/queue.py')
+# from queue.py import *
+sys.path.append('/Users/thiernodiallo/Documents/Code/CS/part1/Data-Structures/stack/stack.py')
+# from stack.py import *
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -83,41 +88,64 @@ class BSTNode:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        if self.left:
-            self.left.in_order_print(node.value)
-        print(node.value)
-        if self.right:
-            self.right.in_order_print(node.value)
+        if node is not None:
+            if node.left:
+                node.left.in_order_print(node)
+            print(self)
+            if node.right:
+                node.right.in_order_print(node)
        
 
     # # Print the value of every node, starting with the given node,
     # # in an iterative breadth first traversal
-    def bft_print(self, node):
-        pass
+    def bft_print(self):
+        if self:
+            queue = Queue()
+            queue.enqueue(self) 
+            while queue.__len__():
+                current = queue.dequeue()
+                print(current.value)
+                if current.left:
+                    queue.enqueue(current.left)
+                if current.right:
+                    queue.enqueue(current.right)
+        else:
+            return None 
 
     # # Print the value of every node, starting with the given node,
     # # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
+        if node:
+            stack = Stack()
+            stack.push(node) 
+            while stack.__len__():
+                current = stack.pop()
+                print(current.value)
+                if current.left:
+                    stack.push(current.left)
+                if current.right:
+                    stack.push(current.right)
+        else:
+            return None 
 
     # # Stretch Goals -------------------------
     # # Note: Research may be required
 
     # # Print Pre-order recursive DFT
-    def pre_order_dft(self, node):
-        print(node.value)
-        if node.left:
-            node.left.in_order_print(node.value)
-        if node.right:
-            node.right.in_order_print(node.value)
+    # def pre_order_dft(self, node):
+    #     print(node.value)
+    #     if node.left:
+    #         node.left.in_order_print(node)
+    #     if node.right:
+    #         node.right.in_order_print(node)
       
 
-    # Print Post-order recursive DFT
-    def post_order_dft(self, node):
-        if node.left:
-            node.left.in_order_print(node.value)
-        if node.right:
-            node.right.in_order_print(node.value)
-        print(node.value)
+    # # Print Post-order recursive DFT
+    # def post_order_dft(self, node):
+    #     if node.left:
+    #         node.left.in_order_print(node)
+    #     if node.right:
+    #         node.right.in_order_print(node)
+    #     print(node.value)
         
         

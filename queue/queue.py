@@ -15,6 +15,10 @@ return elements in First In First Out order.
 Stretch: What if you could only use instances of your Stack class to implement the Queue?
          What would that look like? How many Stacks would you need? Try it!
 """
+import sys
+sys.path.append('/Users/thiernodiallo/Documents/Code/CS/part1/Data-Structures/singly_linked_list')
+# import singly_linked_list
+
 # implementing queue using python lists
 class Queue:
     def __init__(self):
@@ -37,9 +41,7 @@ class Queue:
 
         
 # implementing queue using python linkedList
-import sys
-sys.path.append('/Users/thiernodiallo/Documents/Code/CS/part1/Data-Structures/singly_linked_list')
-# import singly_linked_list
+
 from singly_linked_list import *
 class Queue:
     def __init__(self):

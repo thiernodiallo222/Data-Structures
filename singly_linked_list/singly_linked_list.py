@@ -1,3 +1,8 @@
+import sys
+sys.path.append('/Users/thiernodiallo/Documents/Code/CS/part1/Data-Structures/queue/queue.py')
+sys.path.append('/Users/thiernodiallo/Documents/Code/CS/part1/Data-Structures/stack/stack.py')
+
+
 class Node:
   def __init__(self, value=None, next_node=None):
     self.value = value
