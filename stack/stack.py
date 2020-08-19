@@ -9,17 +9,64 @@ return elements in Last In First Out order.
    Make sure the Stack tests pass.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Stack?
+   Response: Using an array take O(1) for push and pop methodes. It is the same thing if we 
+   used a linked List. push and pop metods are constant time, so both are efficent
 """
+
+# implementation using python list:
+
 class Stack:
     def __init__(self):
         self.size = 0
-        # self.storage = ?
+        self.storage = []
+           
+    def is_empty(self):
+        return self.size == 0
 
     def __len__(self):
-        pass
+        return(len(self.storage))
+        
 
     def push(self, value):
-        pass
+        self.storage.append(value)
+        self.size+=1
+        
 
     def pop(self):
-        pass
+        if self.is_empty():
+            print('Empty stack !')
+            return
+        self.size -= 1
+        return self.storage.pop()
+
+
+# implementation using linked lists
+from linkedList import *
+
+class Stack:
+    def __init__(self):
+        self.size = 0
+        self.storage = LinkedList()
+        
+            
+    def is_empty(self):
+        return self.size == 0
+
+    def __len__(self):
+        return self.size
+        
+
+    def push(self, value):
+        self.storage.add_to_head(value)
+        self.size += 1
+        
+        
+
+    def pop(self):
+        if self.is_empty():
+            print('Empty stack !')
+            return
+        self.size-=1
+        return self.storage.remove_head()
+
+
